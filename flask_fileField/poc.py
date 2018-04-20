@@ -29,6 +29,9 @@ def upload():
     print(filename)
     print(f)
     f.save(filename)
-    return redirect(url_for('upload'))
+    t = open(filename).read()
+    os.remove(filename)
+    return t
+
 
 app.run(debug=True)
